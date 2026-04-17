@@ -3,13 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git credentialsId: 'github-creds',
-                    url: 'https://github.com/Subhakshan-Chakraborty/jenkins-cicd-demo.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t fastapi-app .'
