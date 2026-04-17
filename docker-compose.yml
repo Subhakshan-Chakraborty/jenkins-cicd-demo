@@ -1,7 +1,6 @@
 services:
   py-app:
     build: .
-    image: py-app
-    container_name: py-app
+    container_name: fastapi-container
     ports:
-      - "8000:8000"
+      - "8001:8000"
