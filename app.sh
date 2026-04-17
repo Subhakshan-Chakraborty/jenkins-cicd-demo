@@ -1,1 +1,0 @@
-echo "app is running"

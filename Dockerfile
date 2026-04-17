@@ -1,9 +1,11 @@
-FROM ubuntu:latest
+FROM python:3.12-alpine
 
 WORKDIR /app
 
-COPY app.sh .
+COPY requirements.txt .
 
-RUN chmod +x app.sh
+RUN pip install -r requirements.txt --no-cache-dir
 
-CMD ["./app.sh"]
+COPY . .
+
+CMD [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
