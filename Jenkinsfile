@@ -3,22 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Build Docker Image') {
+        stage('Stop Old Containers') {
             steps {
-                sh 'docker build -t fastapi-app .'
+                sh 'docker-compose down || true'
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Build & Start Containers') {
             steps {
-                sh 'docker stop fastapi-container || true'
-                sh 'docker rm fastapi-container || true'
-            }
-        }
-
-        stage('Run Container') {
-            steps {
-                sh 'docker run -d -p 8001:8000 --name fastapi-container fastapi-app'
+                sh 'docker-compose up -d --build'
             }
         }
     }
