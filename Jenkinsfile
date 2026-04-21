@@ -6,7 +6,7 @@ pipeline {
         REPO = "my-repo"
         IMAGE = "fastapi-app"
         REGION = "asia-south1"
-        VM_IP = "34.47.232.181"
+        VM_IP = "34.100.158.46"
         VM_USER = "subhakshan"
     }
 
